@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/input.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/borders.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fm.revealator.jquery.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.7.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/fm.revealator.jquery.min.js') }}"></script>
+</head>
+<body>
+{% include 'menu.html' %}
+
+<div class="container">
+  <div id="main-content">
+    {% block main %} {% endblock %}
+  </div>
+  <div id="side-content">
+    {% block side %} {% endblock %}
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/general.js') }}"></script>
+    <script>
+        {% if visibility and visibility != 'nothing' %}
+            showSidePanel();
+        {% endif %}
+    </script>
+{% include 'footer.html' %}
+</body>
+</html>

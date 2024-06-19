@@ -1,0 +1,34 @@
+{% extends 'template.html' %}
+{% block side %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+
+{% block main %}
+    <form id="prediction-form" class="revealator-slideright revealator-delay1 revealator-duration5" enctype="multipart/form-data" action="{{ url_for('detect') }}" method="POST">
+        <div class="form-info revealator-slidedown revealator-duration5 revealator-delay7">
+            <h3 id="title" class="borders-wait">Загрузите видео или изображение...</h3>
+        </div>
+        <div class="data-container">
+            <div class="image-container">
+                <img id="image_result" class="result {% if visibility == 'video' or visibility == 'nothing' %} hidden {% endif %}"
+                     src="{{ image_result }}" alt="">
+            </div>
+            <div class="video-container">
+                <video id="video_result" class="result {% if visibility == 'img' or visibility == 'nothing' %} hidden {% endif %}"
+                       src="{{ video_result }}" controls>
+
+                </video>
+            </div>
+        </div>
+        <div class="file-loader revealator-slideup revealator-duration5 revealator-delay9">
+        <label class="input-file">
+            <input name="file" accept="image/*, video/*" id="upload" class="input-file" type="file" onchange="showFile(this)">
+            <span class="input-file-btn">Выберите файл</span>
+            <span id="filename">Изображение или видео</span>
+        </label>
+        <button disabled class="button" type="submit">
+            <span>Распознавание</span><i></i>
+        </button>
+        </div>
+    </form>
+{% endblock %}

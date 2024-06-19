@@ -1,0 +1,23 @@
+{% extends 'template.html' %}
+{% block main %}
+    <hr>
+    <br>
+    <br>
+    <h2 class="title revealator-rotateleft revealator-duration5 revealator-delay5">В данном разделе представлены все животные распознаваемые нашим искуственным интелектом</h2>
+        <br>
+    <br>
+    <hr>
+    <div class="flex-container">
+        <div class="flex-container">
+            {% for animal in animals %}
+                <div class="database-element revealator-slideright revealator-delay{{ loop.cycle(3, 5, 1) }} revealator-duration3">
+                    <p><img class="medium_preview" src="{{ url_for('static', filename='db-images/' + animal.img) }}" alt=""></p>
+                    <p class="database-header">{{ animal.name }}</p>
+                    <br>
+                    <p class="database-info">{{ animal.info }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+{% endblock %}

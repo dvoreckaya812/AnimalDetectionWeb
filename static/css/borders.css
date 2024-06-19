@@ -1,0 +1,82 @@
+.borders-wait {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+.borders-wait::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #BFE2FF;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7), linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7);
+    animation: anim-borders 4s linear infinite;
+}
+.borders-wait::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+}
+@keyframes anim-borders {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.borders-ready {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+}
+.borders-ready::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #59be6e;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#59be6e, #59be6e), linear-gradient(#39FF14, #39FF14), linear-gradient(#59be6e, #59be6e), linear-gradient(#39FF14, #39FF14);
+    animation: anim-borders 4s linear infinite;
+}
+.borders-ready::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+}

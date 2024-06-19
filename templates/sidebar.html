@@ -1,0 +1,21 @@
+<button id="side-button">
+    <
+</button>
+<div class="sidebar">
+    <div class="sidebar-content">
+        <h2>Распознаны следующие виды животных:</h2>
+        <div class="flex-container">
+
+                {% for animal in animals %}
+                    <div class="flex-element revealator-slideup revealator-delay{{ loop.index + 4 }} revealator-duration5">
+                    <p><img class="medium_preview" src="{{ url_for('static', filename='db-images/' + animal.img) }}" alt=""></p>
+                    <p class="header">{{ animal.name }}</p>
+                    <br>
+                    <br>
+                    <p>{{ animal.info }}</p>
+                    </div>
+                {% endfor %}
+
+        </div>
+    </div>
+</div>
